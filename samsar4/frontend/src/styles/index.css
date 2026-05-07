@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: #F8F9FB;
+    color: #0A0F1E;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(0,200,150,.15);
+  }
+}
+
+@layer components {
+
+  /* =========================
+     BUTTONS
+  ========================= */
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 font-sans font-semibold rounded-xl transition-all duration-200 active:scale-[.97] select-none whitespace-nowrap;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-white px-6 py-3 text-sm hover:bg-ink-700 shadow-ink hover:shadow-xl;
+  }
+
+  .btn-teal {
+    @apply btn text-white px-6 py-3 text-sm shadow-teal hover:shadow-xl hover:brightness-105;
+    background: linear-gradient(135deg,#00C896,#00A87A);
+  }
+
+  .btn-outline {
+    @apply btn text-ink px-6 py-3 text-sm;
+    border: 2px solid rgba(10,15,30,0.15);
+  }
+
+  .btn-ghost {
+    @apply btn px-4 py-2.5 text-sm rounded-lg;
+    color: rgba(10,15,30,0.60);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(10,15,30,0.05);
+    color: #0A0F1E;
+  }
+
+  .btn-white {
+    @apply btn bg-white text-ink px-6 py-3 text-sm shadow-md hover:shadow-lg;
+  }
+
+  .btn-sm {
+    @apply py-2 px-4 text-xs;
+    border-radius: 0.625rem;
+  }
+
+  .btn-lg {
+    @apply py-4 px-8 text-base;
+    border-radius: 1rem;
+  }
+
+  /* =========================
+     FORMS
+  ========================= */
+
+  .field {
+    @apply w-full px-4 py-3.5 text-sm font-sans rounded-xl bg-white transition-all duration-200 focus:outline-none focus:ring-2;
+    border: 1px solid #E5E7EB;
+    color: #0A0F1E;
+  }
+
+  .field::placeholder {
+    color: rgba(10,15,30,0.35);
+  }
+
+  .field:focus {
+    border-color: rgba(0,200,150,.50);
+    box-shadow: 0 0 0 4px rgba(0,200,150,.15);
+  }
+
+  .label {
+    @apply block text-xs font-bold uppercase tracking-widest mb-2;
+    color: rgba(10,15,30,0.45);
+    font-size: 0.625rem;
+  }
+
+  /* =========================
+     CARDS
+  ========================= */
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm transition-all duration-300;
+    border: 1px solid rgba(10,15,30,0.06);
+  }
+
+  .card-hover {
+    @apply card hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .card-ink {
+    @apply bg-ink rounded-2xl;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* =========================
+     BADGES
+  ========================= */
+
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wide;
+    font-size: 0.625rem;
+  }
+
+  .badge-sale {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-rent {
+    @apply badge bg-blue-50 text-blue-700;
+  }
+
+  .badge-feat {
+    @apply badge bg-amber-50 text-amber-700;
+  }
+
+  .badge-pending {
+    @apply badge bg-orange-50 text-orange-700;
+  }
+
+  .badge-active {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-inactive {
+    @apply badge;
+    background: rgba(10,15,30,0.06);
+    color: rgba(10,15,30,0.45);
+  }
+
+  /* =========================
+     LAYOUT
+  ========================= */
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.18em] text-teal flex items-center gap-2.5;
+  }
+
+  .h-display {
+    @apply font-display text-5xl md:text-6xl text-ink leading-[1.05];
+  }
+
+  .h-section {
+    @apply font-display text-4xl md:text-5xl text-ink leading-[1.1];
+  }
+
+  .h-card {
+    @apply font-display text-2xl text-ink;
+  }
+
+  .lead {
+    @apply text-base md:text-lg leading-relaxed font-light;
+    color: rgba(10,15,30,0.55);
+  }
+
+  /* =========================
+     PILLS
+  ========================= */
+
+  .pill-active {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer select-none bg-ink text-white border border-ink;
+  }
+
+  .pill-idle {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold cursor-pointer select-none bg-white transition-all;
+    color: rgba(10,15,30,0.60);
+    border: 1px solid rgba(10,15,30,0.12);
+  }
+
+  .pill-idle:hover {
+    border-color: rgba(10,15,30,0.30);
+    color: #0A0F1E;
+  }
+
+  /* =========================
+     EFFECTS
+  ========================= */
+
+  .skeleton {
+    @apply rounded-xl;
+    background: linear-gradient(
+      90deg,
+      #EFF1F5 25%,
+      #E5E7EB 50%,
+      #EFF1F5 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+  }
+
+  .feature-icon {
+    @apply w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0;
+    background: rgba(0,200,150,.10);
+    color: #00C896;
+  }
+
+  .glass-dark {
+    background: rgba(10,15,30,.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  .glass-light {
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+}
+
+/* =========================
+   TEXT EFFECTS
+========================= */
+
+.text-gradient {
+  background: linear-gradient(135deg,#00C896,#00E5A8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg,#F59E0B,#FCD34D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================
+   BACKGROUNDS
+========================= */
+
+.bg-dots {
+  background-image: radial-gradient(circle,rgba(0,200,150,.10) 1.5px,transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0,200,150,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,200,150,.05) 1px,transparent 1px);
+
+  background-size: 48px 48px;
+}
+
+.bg-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #060D1A 0%,
+      #0A1628 40%,
+      #0D1E35 100%
+    );
+}
+
+/* =========================
+   LEAFLET
+========================= */
+
+.leaflet-container {
+  border-radius: 1.25rem;
+  z-index: 1;
+  font-family: 'Plus Jakarta Sans',sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 16px !important;
+  box-shadow: 0 16px 48px rgba(10,15,30,.18) !important;
+  border: 1px solid rgba(10,15,30,.06) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F9FB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00C896;
+  border-radius: 99px;
+}
